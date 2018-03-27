@@ -21,7 +21,7 @@
         $div.get(0);
         //转换以后就可以用他们的方法
         console.log($div);
-        //注意选择器的使用和CSS的相同，详细参考jQuery api
+        //注意选择器的使用和CSS的相同，详细参考jQuery api，基本筛选
 //        eq(index);//选中第index个原素
 //        lt();小于index的
 //        gt();大于
@@ -32,9 +32,22 @@
 //        first和last
 //        not()排除
 //         target;//当作为目标时
+        //hidden
+            //父亲或者自己display：none
+        //父亲或者自己宽高0
+        //type='hidden'的表单元素
+        //层级选择器
+        //属性选择器
+       // $('input[type=text]')
+        //子元素选择器；注意写在谁的上
+        //nth-child(2n+1)；找规律
+//练习1.菜单，选项变色
 //1小时
-
-
+    //内容选择器
+//        ：empty：选择没有子元素或文本的节点:相反parent//选择有子元素或文本的节点
+//        ：contains()：选择文本是（）的节点
+//            $(div:has(p)):选择div下有p的元素
+//            input:focus{}获取焦点
 
     </script>
 
