@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>你的爱好是什么？</h1>
+    <form>
+        <input type="checkbox" name="cat">大猫
+        <input type="checkbox" name="cat">小猫
+        <input type="checkbox" name="cat">花猫
+        <input type="checkbox" name="cat">橘猫
+        <input type="checkbox" name="cat">胖猫<br>
+        <input type="button" value="全选" id="all">
+        <input type="button" value="全不选" id="no">
+        <input type="button" value="反选" id="re">
+        
+    </form>
+    <!--arr.forEach(function(elem,index,arr){//原生，jq是each（index elem arr）
+    )-->
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $Check = $('[type=checkbox]');
+        $Btn = $('[type=button]');//console.log($Btn);
+        $(function () {
+            $('#all').on('click',function () {
+                for(var i = 0; i < $Check.length; i++){
+                   // $Check.attr('checked','checked');
+                    $Check.prop('checked','checked');
+                }
+
+            });
+            $('#no').on('click',function () {
+                for(var i = 0; i < $Check.length; i++){
+                    //$Check.attr('checked',false);
+                    $Check.prop('checked',false);
+                }
+            });
+            $('#re').on('click',function () {
+                for(var i = 0; i < $Check.length; i++){
+                    if($Check.eq(i).prop("checked")==true){
+                        $Check.eq(i).prop("checked",false);
+                    }
+                    else{
+                        $Check.eq(i).prop("checked",true);
+                        console.log(11);
+                    }
+                }
+            });
+
+        })
+
+
+
+
+    </script>
+</body>
+</html>
