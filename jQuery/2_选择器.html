@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div></div>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+//自定义属性
+        var $div = $('div');
+ //原生  div.setAttribute('bb','12');
+        //查询
+        div.getAttribute('bb');
+//jq
+        $div.attr();//一个参数是查询，两个参数是设置
+        $div.prop();//checked的时候用，attr会出错
+    </script>
+</body>
+</html>
