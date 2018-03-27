@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>锚点，菜单定位(herf)</title>
+    <style>
+        /**{*/
+            /*marin:0;*/
+            /*padding:0;*/
+        /*}*/
+        /*li{*/
+            /*float: left;*/
+            /*list-style: none;*/
+            /*background-color:gray;*/
+            /*margin-left: 5px;*/
+
+        /*}*/
+        /*a{*/
+            /*text-decoration: none;*/
+            /*color: black;*/
+
+        /*}*/
+       /*div{*/
+           /*margin-top: 900px;*/
+       /*}*/
+        /*.clearfix:after{*/
+            /*display: block;*/
+            /*content: "";*/
+            /*clear: both;*/
+        /*}*/
+        /*span{*/
+
+        /*}*/
+        /*span{*/
+            /*background-color: gray;*/
+        /*}*/
+        /*#return:target{!*作为目标点击锚点的时候*!*/
+            /*background-color:brown;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+<!--重点：href中必须填写ID选择器才生效-->
+    <!--<ul class="clearfix" id="top">-->
+        <!--<li class="li1"><a href="#menu1">找白猫</a></li>-->
+        <!--<li class="li2"><a href="#menu2">找黑猫</a></li>-->
+        <!--<li class="li3"><a href="#menu3">找花猫</a></li>-->
+        <!--<li class="li4"></li>-->
+    <!--</ul>-->
+    <!--<div id="menu1"><img src="../image/flowercat.jpg" alt=""></div>-->
+    <!--<span id="return"><a href="#top">返回顶部</a></span>-->
+    <!--<div id="menu2"><img src="../image/cat3.jpg" alt=""></div>-->
+    <!--<span id="return"><a href="#top">返回顶部</a></span>-->
+    <!--<div id="menu3"><img src="../image/whitecat.jpg" alt=""></div>-->
+    <!--<span id="return"><a href="#top">返回顶部</a></span>-->
+<!--选项变色,注意并不是绝对相等-->
+    <input type="text">
+    <ol>
+        <!--<li>大猫</li>-->
+        <!--<li>小猫</li>-->
+        <!--<li>大花猫</li>-->
+        <!--<li>小花猫</li>-->
+        <li>a</li>
+        <li>acb</li>
+        <li>bacl</li>
+        <li>ckaj</li>
+    </ol>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        var $li = $('ol li');
+        console.log($li);
+        var $input = $('input')
+        $(function () {//文档就绪函数，把函数写在里面
+
+            $input.on('keyup',function () {
+                console.log(this.value);
+                $li.css('color','black');
+                if(this.value!=""){
+                 $('ol li:contains('+this.value+')').css('color','blue');
+                }
+//                else{
+//                    $li.css('color','black');
+//                }
+
+            });
+    })
+
+
+    </script>
+</body>
+</html>
