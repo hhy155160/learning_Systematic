@@ -14,8 +14,10 @@ var now = new Date();
 now.setDate(now.getDate()+10);//getdate日
 document.cookie='name=zhang;expires='+now.toUTCString();//Max-age:过期时间
 console.log(document.cookie);
-    //jQuery的cookie
-
+    //jQuery的cookie,    y引入cookie.js
+    $.cookie("web","123",{expires:30});//添加
+    $.cookie("web")//获取
+    $.cookie("web","123",{expires:-1});//移除
 //addcookie
 //getcookie
 //delcookie
