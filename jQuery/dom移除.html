@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">btn</button>
+
+<script src="jquery-3.3.1.js"></script>
+<script>
+    $("#btn").on('click',function () {
+        console.log("1");
+    })
+//移除.remove()：以后会把事件，JQuery数据也会移除掉
+//      var btn =  $("#btn").remove();//该函数是有返回值得，返回值就是被移除的元素
+    //        console.log(btn);
+    var btn = $('#btn').detach();//不会移除事件，append后事件还在
+//父元素增加子元素
+    $('body').append(btn);
+</script>
+</body>
+</html>
