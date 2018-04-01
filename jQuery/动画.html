@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            height:500px;
+            width: 500px;
+            background-color: brown;
+        }
+
+    </style>
+</head>
+<body>
+<!--1.-->
+<!--<button id="show">显示</button>-->
+<!--<button id="hide">隐藏</button>-->
+<!--<button id="toggle">toggle</button>-->
+<!--2.-->
+<!--<button id="fadeIn">fadeIn</button>-->
+<!--<button id="fadeOut">fadeOut</button>-->
+<!--3-->
+<button id="sildeDown">sildeDown</button>
+<button id="sildeUp">sildeUp</button>
+<button id="animate">animate</button>
+<div id="div1"></div>
+<script src="jquery-3.3.1.js"></script>
+<script src="jquery.easing.min.js"></script>
+<script>
+
+ //1.div.show\hide(display:none)\toggle
+    var $div1 = $("#div1");
+//    $("#show").on("click",function () {
+//        $div1.show(5000);//5秒内完成显示，是一个逐渐完成的过程
+//    });
+// $("#hide").on("click",function () {
+//     $div1.hide(5000);//5秒内完成隐藏，是一个逐渐完成的过程
+// })
+// $("#toggle").on("click",function () {
+//     $div1.toggle(5000);//5秒内，有，我给你去掉，没有我给你加上
+// })
+
+//2.fadeIn\fadeOut
+// $("#fadeIn").on("click",function () {
+//     $div1.fadeIn(5000);//5秒内透明度0-1；参数也可以是fast：200毫秒，slow：600毫秒
+// })
+// $("#fadeOut").on("click",function () {
+//     $div1.fadeOut(5000);//5秒内透明度1_0；
+// })
+   //同理也有一个fadeToggle：
+//3.slideDown\slideUp
+ $("#sildeDown").on("click",function () {
+    $div1.slideDown(5000);//5秒内height减少（height——0）
+  })
+ $("#sildeUp").on("click",function () {
+     $div1.slideUp(5000);//5秒内0——height增大
+ })
+ //同理也有一个slideToggle：
+//animate
+ $("#animate").on("click",function () {//第一个参数：样式，第二个参数：运行时间,第三个：缓动效果（linear、swing）：四：执行的哈函数
+     $div1.animate({
+        opacity:0.5,
+        width:200,//注意是对象，不加单位
+     },200,"easeOutBounce",function () {
+         console.log("ob=ver");
+     });//参数可以传对象
+ })
+  //选择器：：animated:选择的是正在执行动画的元素。
+//stop(是否取消已队列动画(boolean)，是否当前动画立即完成)，默认false，false
+//合并对象：$.extend(obj1,obj2...);//可以合并多个
+//引入代码段：$div1.load("1.html")
+</script>
+
+</body>
+</html>
