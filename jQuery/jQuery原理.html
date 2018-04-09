@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原理</title>
+</head>
+<body>
+<div id="div1"></div>
+<div class="div2"></div>
+<script src="jquery-3.3.1.js"></script>
+<script>
+//1.对象和类的区别
+//2.基于原型的继承
+//3.jQuery $函数
+    //$("#div1")函数
+        $("#div1");
+        $(function () {//文档就绪函数
+
+        });
+        //console.log($("#div1"));
+    function $(selector,context) {
+        return new JQuery(selector,context);
+    }
+    function JQuery(selector,context){//参数：1.选择器2.
+        this.elements = [];
+        //判断传入参数，是function还是字符串
+        if(typeof selector==="string"){
+            if(selector.charAt(0)==="#"){//substring():从哪开始到哪结束(不包括哪结束)；substr():从哪开始，截取多长;
+                this.elements.push(document.getElementById(selector.substring(1)));//但是jquery返回的是一个数组
+
+            }else if(selector.charAt(0)==="."){
+                //需要用到以前封装的一个函数getByClassName(clsName,context)
+                this.elements = getByClassName(selector.substring(1),context);
+            }
+
+        }else if(typeof selector ==="function"){
+            //需要调用一个以前封装的函数，addEvent():在事件冒泡讲的，第一个参数对象，第二个参数事件，第三个参数内容
+            addEvent(window,"load",selector);
+        }
+        
+
+    }
+    //2.on()
+    JQuery.prototype.on = function (type,handler) {//第一个参数是函数类型(click...);第二个参数是函数内容
+       //因为有可能是数组，所以用for in
+        for(var arr in this.elements){
+            addEvent(this.elements[arr],type,handler);
+        }
+        //4.链式 .css().on()
+        return this;//返回当前对象，为了能够链式调用
+    }
+    //3.css()
+    JQuery.prototype.css = function (arg1,arg2) {
+        if(typeof arg1 === "string"&&typeof arg2 ==="string"){
+            for(var i = 0; i<this.elements.length; i++){
+                this.elements[i].style[arg1]=arg2;
+            }
+        }else if(typeof arg1 ==="string"&&typeof arg2 === "function"){
+            for(var i = 0; i<this.elements.length; i++){
+                this.elements[i].style[arg1]=arg2();
+            }
+        }else if(typeof arg1 === "object"&&typeof arg2 ==="undefined"){
+            for(var i = 0; i<this.elements.length; i++){
+                for(var pro in arg1){
+                    this.elements[i].style[pro]=arg1[pro];
+                }
+            }
+        }
+        //4.链式 .css().on()
+        return this;//返回当前对象，为了能够链式调用
+    }
+
+
+
+</script>
+</body>
+</html>
