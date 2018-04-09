@@ -26,7 +26,9 @@
 <button id="animate">animate</button>
 <div id="div1"></div>
 <script src="jquery-3.3.1.js"></script>
-<script src="jquery.easing.min.js"></script>
+<script src="jquery.easing.min.js">
+    //缓动效果
+</script>
 <script>
 
  //1.div.show\hide(display:none)\toggle
@@ -51,14 +53,15 @@
    //同理也有一个fadeToggle：
 //3.slideDown\slideUp
  $("#sildeDown").on("click",function () {
-    $div1.slideDown(5000);//5秒内height减少（height——0）
+    //$div1.slideDown(5000);//5秒内height减少（height——0）
+
   })
  $("#sildeUp").on("click",function () {
      $div1.slideUp(5000);//5秒内0——height增大
  })
  //同理也有一个slideToggle：
-//animate
- $("#animate").on("click",function () {//第一个参数：样式，第二个参数：运行时间,第三个：缓动效果（linear、swing）：四：执行的哈函数
+//4.animate
+ $("#animate").on("click",function () {//第一个参数：样式，第二个参数：运行时间,第三个：缓动效果（linear、swing。。。）：四：执行的哈函数
      $div1.animate({
         opacity:0.5,
         width:200,//注意是对象，不加单位
@@ -67,9 +70,13 @@
      });//参数可以传对象
  })
   //选择器：：animated:选择的是正在执行动画的元素。
+
 //stop(是否取消已队列动画(boolean)，是否当前动画立即完成)，默认false，false
-//合并对象：$.extend(obj1,obj2...);//可以合并多个
-//引入代码段：$div1.load("1.html")
+ //经常$div1.stop().hide();先结束动画效果，再执行。
+//合并对象：$.extend(obj1,obj2...);//可以合并多个，把obj2赋给obj1.
+//引入代码段：$div1.load("1.html")，注意谷歌浏览器不让跳转file协议。
+    //lode();是把1.html里的代码插入到动画.html里的，在$div1里插入，所以1.html里不用写<head>等
+
 </script>
 
 </body>
