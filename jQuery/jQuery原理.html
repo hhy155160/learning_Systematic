@@ -35,7 +35,9 @@
 
         }else if(typeof selector ==="function"){
             //需要调用一个以前封装的函数，addEvent():在事件冒泡讲的，第一个参数对象，第二个参数事件，第三个参数内容
-            addEvent(window,"load",selector);
+           // addEvent(window,"load",selector);
+            addEvent(document,"DOMContentloaded",selector);
+            //注意load/onload函数
         }
         
 
