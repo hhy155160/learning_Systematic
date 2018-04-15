@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <div id="app">
+        <!-- <div v-for="val in objs">
+            <div v-for="vals in val">{{vals}}</div>
+     </div> -->
+        <!-- <div v-for="val in objs">name:{{val.name}}</div> -->
+        <!-- <div v-for="(val,key,index) in obj">{{val}}:{{key}} {{index}}</div> -->
+        <!-- <div v-for="(val,index) in arr">{{val}}: {{index}}</div> -->
+        <!-- <div v-for="val in objs">name:{{val.name}}--age:{{val.age}}--school:{{val.school}}</div> -->
+        <div v-for="val in arr">{{val}}</div>
+   </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            computed:{
+                arr(){
+                    return this.arr.sort(function(a,b){
+                        return b-a;
+                    })
+                }
+            },
+            data:{
+              obj:{
+                  name:'hhy',
+                  age:12,
+                  school:"heida"
+              },
+              objs:[{
+                  name:'hhy1',
+                  age:12,
+                  school:"heida1"
+              },
+              {
+                  name:'hhy2',
+                  age:12,
+                  school:"heida2"
+              },{
+                  name:'hhy3',
+                  age:12,
+                  school:"heida3"
+              }],
+              arr:[1,5,7,3,4,5]
+            }
+        })
+    </script>
+</body>
+</html>
