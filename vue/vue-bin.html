@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active{
+            height: 100px;
+            width:100px;
+            background-color: aquamarine;
+        }
+        [v-clock]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <img v-bind:src="imgSrc" alt="">下面是简写 -->
+        <!-- <img :src="imgSrc" alt=""> -->
+        <!-- <div :class="cisActive">jjjj</div>
+        <div :class="[aa,bb]">jjjj</div>
+        <div :class="[aa,{selected:isActive}]">jjjj</div> -->
+        <!-- <div :style="[styleA,styleB]">jjjj</div>
+        <div id="abc" ff-dd="gg"></div>
+        <div v-bind="{id:idName,'ff-dd':ffgg}"></div> -->
+<!-- 不解析 -->
+        <span v-pre>{{bgc}}</span>
+<!-- v-cloak：直到编译完成之后才会执行 
+    v-once:只渲染一次
+-->
+
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'https://123p0.sogoucdn.com/imgu/2016/11/20161101143719_658.png',
+                aa:'active',
+                bb:'selected',
+                isActive:false,
+                bgc:"red",
+                size:10,
+                styleA:{
+                    color:"red",
+                    
+                },
+                styleB:{
+                    //color:"blue",
+                    fontSize:50+'px',
+                    border:1+'px',
+                    backgroundColor:"blue",
+                },
+                idName:"aa",
+                ffgg:"a",
+            },
+            computed:{
+                cisActive(){
+                    if(this.isActive){
+                        return "active";
+                    }
+                    else{
+                        return "";
+                    }
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>
