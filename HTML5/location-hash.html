@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 需求:每点击一下button产生5个随机数,，点<-这个箭头，查看上次的随机数是什么 -->
+    <button id="btn">随机数</button>
+    <h3 id="h"></h3>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        var obj={
+
+        };
+        $("#btn").on("click",function(){
+            var arr = [];
+            for(var i=0;i<5;i++){
+                arr.push(Math.ceil(Math.random()*10));
+            }
+         $("#h").text(arr);
+        //$("#h").html(arr);//注意text和html的区别
+         //console.log(arr);
+         location.hash=Math.random();
+         obj[location.hash]=arr;
+        });
+        window.onhashchange=function(){
+            $("#h").text(obj[location.hash]);
+        }
+    </script>
+</body>
+</html>
